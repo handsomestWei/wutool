@@ -1,11 +1,13 @@
 # wutool
-一个java代码片段收集库，针对特定场景提供轻量解决方案，可以直接复用。
+一个java代码片段收集库，针对特定场景提供轻量解决方案。
 
 ## 关于wutool
 + wutool针对特定场景提供轻量解决方案，归类放置在工程里不同的包下。
 + 和常见的工具库不同，使用wutool无需全量引用，只要按需选择代码片段拷贝使用即可。
 
 ## 片段列表
+- task
+    - [sql大in多线程并行查询模板类，自定义数据拆分和合并方法](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/task/PartitionSelectJob.java)
 - 工具类
     - [二维码图片生成、编码、解码](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/QrCodeUtil.java)
     - [图片处理：多图合并和加字、图片画框](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/PicUtil.java)
