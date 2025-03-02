@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 开启日志配置热更新，设定修改后配置生效的间隔 -->
+<configuration scan="true" scanPeriod="60 seconds">
+    <!-- 日志存放路径 -->
+    <property name="log.path" value="./logs"/>
+    <!-- 日志输出格式。附加了traceId，需要配合调用链id注入模块使用。可参考filter包下的HttpTraceIdFilter类 -->
+    <property name="log.pattern"
+              value="%d{HH:mm:ss.SSS} - [%thread] - [%X{traceId}] - %-5level %logger{20} - [%method,%line] - %msg%n"/>
+
+    <!-- 控制台输出 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 日志输出配置 -->
+    <appender name="file_debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/sys-debug.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 日志文件名格式 -->
+            <fileNamePattern>${log.path}/sys-debug.%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <!--每个文件的大小限制-->
+            <MaxFileSize>200MB</MaxFileSize>
+            <!--最多保留x天的文件，x天之前的将被清除-->
+            <MaxHistory>7</MaxHistory>
+            <!--该滚动策略日志的总大小，超过的日志会被清除-->
+            <totalSizeCap>1GB</totalSizeCap>
+            <!--启动时清理日志文件，清理超过保留天数的，也会清理超过总大小的-->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 过滤的级别 DEBUG-->
+            <level>DEBUG</level>
+            <!-- 匹配时的操作：接收（记录） -->
+            <onMatch>ACCEPT</onMatch>
+            <!-- 不匹配时的操作：拒绝（不记录） -->
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="file_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/sys-info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/sys-info.%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <MaxFileSize>200MB</MaxFileSize>
+            <MaxHistory>7</MaxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="file_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/sys-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/sys-error.%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <MaxFileSize>200MB</MaxFileSize>
+            <MaxHistory>7</MaxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 指定某个包的日志级别 -->
+    <logger name="com.wjy.wutool" level="debug"/>
+    <!-- 临时关闭某个包的日志输出 -->
+    <logger name="com.xxx" level="OFF"/>
+
+    <root level="info">
+        <appender-ref ref="file_debug"/>
+        <appender-ref ref="file_info"/>
+        <appender-ref ref="file_error"/>
+    </root>
+</configuration>
