@@ -9,6 +9,8 @@
 - task
     - [基于内存的动态定时任务管理。任务增删改查](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/task/dynamic/DynamicTaskManager.java)
     - [sql大in多线程并行查询模板类。自定义数据拆分和合并方法](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/task/PartitionSelectJob.java)
+- 热更新
+    - [配置文件属性热更新。声明式定义，无需侵入式编码](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/hotreload/MiniHotReloadPropComponent.java)
 - excel
     - [excel http附件下载、模板填充](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/excel/util/RspAttachmentHelper/.java)
     - [excel动态列写入](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/excel/util/DynamicHeadHelper/.java)

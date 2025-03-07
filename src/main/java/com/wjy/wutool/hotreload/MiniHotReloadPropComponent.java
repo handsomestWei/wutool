@@ -24,7 +24,8 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 配置文件轻量热更新。基于最小化原则，适用于少量配置的修改
+ * 配置文件属性热更新。声明式定义，无需侵入式编码，基于最小化原则，适用于少量配置的修改
+ * 不同于spring cloud的@RefreshScope注解需要侵入式编码改造，声明式定义可以在外部反射直接修改，可用于第三方jar包集成
  *
  * @author weijiayu
  * @date 2025/02/20 23:36
@@ -38,7 +39,7 @@ public class MiniHotReloadPropComponent extends FileAlterationListenerAdaptor im
 
     @Getter
     @Setter
-    private String monitorFile; // 配置文件监控路径。只支持单文件
+    private String monitorFile; // 配置文件监控路径。绝对路径，只支持单文件
 
     @Getter
     @Setter
