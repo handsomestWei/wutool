@@ -9,6 +9,11 @@
 - task
     - [基于内存的动态定时任务管理。任务增删改查](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/task/dynamic/DynamicTaskManager.java)
     - [sql大in多线程并行查询模板类。自定义数据拆分和合并方法](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/task/PartitionSelectJob.java)
+- excel
+    - [excel http附件下载、模板填充](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/excel/util/RspAttachmentHelper/.java)
+    - [excel动态列写入](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/excel/util/DynamicHeadHelper/.java)
+    - [excel单元格上自适应填充图片](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/excel/ImageAutoFillMergeCelHandler.java)
+    - [基于阿里easy excel的包装工具类](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/excel/util/EasyExcelUtil.java)
 - 过滤器
     - [http调用链id注入过滤器。适合单体架构](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/filter/HttpTraceIdFilter.java)
 - 工具类

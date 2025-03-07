@@ -4,11 +4,10 @@ import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.support.ExcelTypeEnum;
 import com.alibaba.excel.write.builder.ExcelWriterBuilder;
+import com.alibaba.excel.write.builder.ExcelWriterSheetBuilder;
 import com.alibaba.excel.write.metadata.WriteSheet;
 import com.alibaba.excel.write.style.column.LongestMatchColumnWidthStyleStrategy;
-import com.wjy.wutool.excel.ImageAutoFillMergeCelHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
@@ -24,38 +23,9 @@ import java.util.Collection;
 @Slf4j
 public class EasyExcelUtil {
 
-    /**
-     * http excel附件下载
-     */
-    public static void rspAttachment(HttpServletResponse response, String fileName, String fileSuffix,
-                                     String sheetName, Class dataClazz, Collection<?> data) {
-        try {
-            response.flushBuffer();
-            ExcelWriterBuilder builder = EasyExcel.write(response.getOutputStream(), dataClazz);
-            setAttachment(response, builder, fileName, fileSuffix);
-            setAutoFormat(builder);
-            try (ExcelWriter excelWriter = builder.build()) {
-                WriteSheet writeSheet = EasyExcel.writerSheet(sheetName).build();
-                excelWriter.write(data, writeSheet);
-            }
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-            response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        }
-    }
-
-    /**
-     * http excel附件下载，基于excel模板填充内容
-     */
-    public static void rspAttachmentWithTpl(HttpServletResponse response, String tplPath, String fileName, Object data) {
-        try {
-            ExcelWriterBuilder builder = EasyExcel.write(response.getOutputStream());
-            setAttachment(response, builder, fileName, tplPath.substring(tplPath.lastIndexOf(".")));
-            builder.withTemplate(tplPath).registerWriteHandler(new ImageAutoFillMergeCelHandler()).sheet().doFill(data);
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-            response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        }
+    public static void writerSheet(ExcelWriter excelWriter, String sheetName, Collection<?> data) {
+        WriteSheet writeSheet = setAutoFormat(EasyExcel.writerSheet(sheetName)).build();
+        excelWriter.write(data, writeSheet);
     }
 
     /**
@@ -92,7 +62,7 @@ public class EasyExcelUtil {
     /**
      * 设置自适应列宽
      */
-    public static ExcelWriterBuilder setAutoFormat(ExcelWriterBuilder builder) {
-        return builder.useDefaultStyle(false).registerWriteHandler(new LongestMatchColumnWidthStyleStrategy());
+    public static ExcelWriterSheetBuilder setAutoFormat(ExcelWriterSheetBuilder sheetBuilder) {
+        return sheetBuilder.useDefaultStyle(false).registerWriteHandler(new LongestMatchColumnWidthStyleStrategy());
     }
 }
