@@ -2,6 +2,7 @@ package com.wjy.wutool.msg.reactor.service;
 
 /**
  * 简单消息响应模型。将三方的异步响应，包装成阻塞等待（超时丢弃）同步响应
+ * 其中泛型Y为消息请求，Z为消息响应。消息请求id保证唯一，响应消息的id和请求时一致
  * 
  * @author weijiayu
  * @date 2024/4/29 17:25
@@ -18,9 +19,11 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public abstract class AbsMsgReactorService<Y extends AbsBaseMsg, Z extends AbsBaseMsg> {
 
+    /** 消息响应缓存，key为消息请求id */
     private HashMap<Long, Z> msgResultMap = new HashMap<>();
     /** 对key加锁 */
     private ConcurrentHashMap<Long, Object> msgKeyLockMap = new ConcurrentHashMap<>();
+    /** 等待消息响应阻塞时间，单位秒 */
     public Integer msgWaitSec = 2;
 
     /**
@@ -70,6 +73,7 @@ public abstract class AbsMsgReactorService<Y extends AbsBaseMsg, Z extends AbsBa
         // 发送成功，阻塞等待结果
         try {
             doInitResource(msgId);
+            // TODO 硬休眠等待，可以改成类似future task get方式while循环并判断起始时间是否超时，提升响应速度
             TimeUnit.SECONDS.sleep(msgWaitSec);
             return msgResultMap.get(msgId);
         } catch (Throwable t) {
@@ -81,6 +85,9 @@ public abstract class AbsMsgReactorService<Y extends AbsBaseMsg, Z extends AbsBa
         }
     }
 
+    /**
+     * 消息处理模板方法，子类可以直接使用
+     */
     public Boolean handleMsg(String msg) {
         try {
             Z msgObj = parseRspMsg(msg);
@@ -92,11 +99,17 @@ public abstract class AbsMsgReactorService<Y extends AbsBaseMsg, Z extends AbsBa
         }
     }
 
+    /**
+     * 申请资源
+     */
     private void doInitResource(Long msgId) {
         msgKeyLockMap.put(msgId, new Object());
         msgResultMap.put(msgId, null);
     }
 
+    /**
+     * 释放资源
+     */
     private void doReleaseResource(Long msgId) {
         Object resource = msgKeyLockMap.get(msgId);
         if (resource == null) {
@@ -108,6 +121,9 @@ public abstract class AbsMsgReactorService<Y extends AbsBaseMsg, Z extends AbsBa
         }
     }
 
+    /**
+     * 放置资源
+     */
     private Boolean doPutResource(Z msgObj) {
         Long msgId = msgObj.getMsgId();
         if (!msgKeyLockMap.containsKey(msgId)) {
