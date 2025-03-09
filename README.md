@@ -13,6 +13,8 @@
     - [配置文件属性热更新。声明式定义，无需侵入式编码](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/hotreload/MiniHotReloadPropComponent.java)
 - 消息
     - [简单消息响应模型。将三方的异步响应包装成阻塞等待同步响应](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/msg/reactor/service/AbsMsgReactorService.java)
+- ftp
+    - [基于Apache Camel FTP的文件下载处理模板类。支持并发文件处理，支持处理进度持久化和重加载](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/ftp/process/AbsBizFileProcess.java)
 - excel
     - [excel http附件下载、模板填充](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/excel/util/RspAttachmentHelper/.java)
     - [excel动态列写入](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/excel/util/DynamicHeadHelper/.java)
