@@ -1,4 +1,4 @@
-package com.wjy.wutool.filter;
+package com.wjy.wutool.web.filter;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;

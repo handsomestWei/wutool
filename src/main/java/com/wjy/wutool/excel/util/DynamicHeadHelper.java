@@ -4,6 +4,7 @@ import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.metadata.Head;
 import com.alibaba.excel.write.builder.ExcelWriterBuilder;
+import com.alibaba.excel.write.metadata.RowData;
 import org.apache.poi.ss.usermodel.Row;
 
 import java.io.OutputStream;
@@ -25,7 +26,7 @@ public class DynamicHeadHelper {
      * @param sheetName
      * @param headNameAliaMap 标题头。按link顺序，value为标题名称
      * @param columnApplyMap  列转换函数集合，支持自定义apply函数对该列数据做转换
-     * @param dataList
+     * @param dataList        注意Map内value Object对象默认为String类型。如果是其他如对象、包装等类型，需要register注册自定义转换器
      * @return void
      * @date 2024/11/18 15:27
      * @link https://easyexcel.opensource.alibaba.com/docs/current/quickstart/write#%E5%8A%A8%E6%80%81%E5%A4%B4%E5%AE
@@ -37,12 +38,14 @@ public class DynamicHeadHelper {
         ExcelWriterBuilder builder = EasyExcel.write(outputStream);
         setExcelExcelHead(builder, headNameAliaMap);
         try (ExcelWriter excelWriter = builder.build()) {
-            EasyExcelUtil.writerSheet(excelWriter, sheetName, convertRowData(headNameAliaMap, columnApplyMap, dataList));
+            EasyExcelUtil.writerSheet(excelWriter, sheetName, convertRowData(headNameAliaMap, columnApplyMap,
+                    dataList));
         }
     }
 
     /**
      * 为excel设置行头
+     *
      * @param builder
      * @param headNameAliaMap 标题头。按link顺序，value为标题名称
      * @return
@@ -57,11 +60,10 @@ public class DynamicHeadHelper {
      *
      * @param headNameAliaMap 标题头。按link顺序，value为标题名称
      * @return java.util.List<java.util.List < java.lang.String>>
-     * @link https://easyexcel.opensource.alibaba.com/docs/current/quickstart/write#%E5%8A%A8%E6%80%81%E5%A4%B4%E5%AE
-     * %9E%E6%97%B6%E7%94%9F%E6%88%90%E5%A4%B4%E5%86%99%E5%85%A5
      * @date 2024/11/18 16:44
      */
     public static List<List<String>> genExcelHeads(LinkedHashMap<String, String> headNameAliaMap) {
+        // @link https://easyexcel.opensource.alibaba.com/docs/current/quickstart/write#%E5%8A%A8%E6%80%81%E5%A4%B4%E5%AE%9E%E6%97%B6%E7%94%9F%E6%88%90%E5%A4%B4%E5%86%99%E5%85%A5
         List<List<String>> list = new ArrayList<>();
         for (Map.Entry<String, String> entry : headNameAliaMap.entrySet()) {
             List<String> headList = new ArrayList<>();
@@ -86,8 +88,8 @@ public class DynamicHeadHelper {
      * @see com.alibaba.excel.write.metadata.MapRowData#get(int)
      */
     public static List<Map<Integer, Object>> convertRowData(LinkedHashMap<String, String> headNameAliaMap,
-                                                             HashMap<String, Function> columnApplyMap,
-                                                             List<Map<String, Object>> dataList) {
+                                                            HashMap<String, Function> columnApplyMap,
+                                                            List<Map<String, Object>> dataList) {
         List<Map<Integer, Object>> rowDataList = new ArrayList<>();
         for (Map<String, Object> dataMap : dataList) {
             Map<Integer, Object> rowDataMap = new HashMap<>();

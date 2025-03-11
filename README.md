@@ -20,8 +20,15 @@
     - [excel动态列写入](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/excel/util/DynamicHeadHelper/.java)
     - [excel单元格上自适应填充图片](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/excel/ImageAutoFillMergeCelHandler.java)
     - [基于阿里easy excel的包装工具类](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/excel/util/EasyExcelUtil.java)
-- 过滤器
-    - [http调用链id注入过滤器。适合单体架构](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/filter/HttpTraceIdFilter.java)
+- web
+    - [http调用链id注入过滤器。适合单体架构](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/filter/HttpTraceIdFilter.java)
+    - [http请求控制器日志打印切面。输出请求入出参数值和耗时到日志](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/WebLogAspect.java)
+    - [参数校验配置。可作用在http请求入参校验等](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/ValidatorConfig.java)
+    - [swagger3接口文档配置](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/Swagger3Config.java)
+    - mybatis
+        - [基于策略自动填充时间类型字段值](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/TimeMetaObjectHandler)
+        - [pg数据库jsonb字段类型处理器](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/PgJsonbTypeHandler)
+        - [分页插件配置](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/MybatisPlusConfig)
 - 工具类
     - [二维码图片生成、编码、解码](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/QrCodeUtil.java)
     - [图片处理：多图合并和加字、图片画框](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/PicUtil.java)
