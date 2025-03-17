@@ -1,13 +1,13 @@
 package com.wjy.wutool.task.dynamic;
 
-import com.wjy.wutool.util.SpringBeanUtil;
+import com.wjy.wutool.web.SpringBeanUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Method;
 
 /**
  * 业务线程
- * 
+ *
  * @author weijiayu
  * @date 2024/10/9 17:52
  */

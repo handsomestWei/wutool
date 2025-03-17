@@ -1,4 +1,4 @@
-package com.wjy.wutool.util;
+package com.wjy.wutool.web;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -24,12 +24,12 @@ public class SpringBeanUtil implements ApplicationContextAware {
 
     @SuppressWarnings("unchecked")
     public static <T> T getBean(String name) throws BeansException {
-        return (T)applicationContext.getBean(name);
+        return (T) applicationContext.getBean(name);
     }
 
     @SuppressWarnings("unchecked")
     public static <T> T getBean(Class<?> clz) throws BeansException {
-        return (T)applicationContext.getBean(clz);
+        return (T) applicationContext.getBean(clz);
     }
 
 }
