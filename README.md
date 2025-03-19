@@ -1,11 +1,14 @@
 # wutool
+
 一个java代码片段收集库，针对特定场景提供轻量解决方案。
 
 ## 关于wutool
+
 + wutool针对特定场景提供轻量解决方案，归类放置在工程里不同的包下。
 + 和常见的工具库不同，使用wutool无需全量引用，只要按需选择代码片段拷贝使用即可。
 
 ## 片段列表
+
 - task
     - [基于内存的动态定时任务管理。任务增删改查](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/task/dynamic/DynamicTaskManager.java)
     - [sql大in多线程并行查询模板类。自定义数据拆分和合并方法](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/task/PartitionSelectJob.java)
@@ -26,12 +29,11 @@
     - [http调用链id注入过滤器。适合单体架构](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/filter/HttpTraceIdFilter.java)
     - [http请求控制器日志打印切面。输出请求入出参数值和耗时到日志](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/WebLogAspect.java)
     - [参数校验配置。可作用在http请求入参校验等](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/ValidatorConfig.java)
-    - [swagger3接口文档配置](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/Swagger3Config.java)
-    - [从spring上下文容器获取指定bean](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/SpringBeanUtil.java)
+    - [i18n国际化工具类。规避某些场景下因缓存取不到期望值问题](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/I18nUtil.java)
+    - [接口请求url unicode解码处理器](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/UrlPathUnicodeDecodeResolver.java)
     - mybatis
         - [基于策略自动填充时间类型字段值](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/TimeMetaObjectHandler)
         - [pg数据库jsonb字段类型处理器](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/PgJsonbTypeHandler)
-        - [分页插件配置](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/MybatisPlusConfig)
 - 工具类
     - [二维码图片生成、编码、解码](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/QrCodeUtil.java)
     - [图片处理：多图合并和加字、图片画框](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/PicUtil.java)
@@ -39,5 +41,6 @@
     - [内存定时kv缓存。可避免引入额外中间件](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/MemoryTimedKvCacheUtil.java)
     - [基于时间间隔的内存kv缓存过滤器。可用于流量削峰](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/MemoryKvCacheDurationFilter.java)
     - [使用各种姿势获取资源的路径](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/ResourcePathUtil.java)
+    - [简单资源操作锁](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/SimpleResourceLock.java)
 - 其他配置
     - [logback日志输出配置范例。文件大小限制、滚动覆盖策略、定时清理等](https://github.com/handsomestWei/wutool/tree/main/src/main/resources/logback.xml)

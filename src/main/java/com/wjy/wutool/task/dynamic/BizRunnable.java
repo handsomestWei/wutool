@@ -1,6 +1,6 @@
 package com.wjy.wutool.task.dynamic;
 
-import com.wjy.wutool.web.SpringBeanUtil;
+import cn.hutool.extra.spring.SpringUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Method;
@@ -30,7 +30,7 @@ public class BizRunnable<T> implements Runnable {
     public void run() {
         try {
             // 也可以直接硬编码，不用反射
-            T service = SpringBeanUtil.getBean(beanName);
+            T service = SpringUtil.getBean(beanName);
             Method method = service.getClass().getMethod(methodName, classes);
             method.invoke(service, params);
         } catch (Throwable e) {
