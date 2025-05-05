@@ -83,6 +83,19 @@
             <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
+	
+	<!-- 异步日志输出。解决logback默认串行锁在高并发写日志时容易锁等待导致cpu升高问题 -->
+    <!-- 或者改用Log4j2异步日志框架 -->
+    <!--    <appender name="async_file_debug" class="ch.qos.logback.classic.AsyncAppender">-->
+    <!--        &lt;!&ndash; 设置异步队列的大小，会占内存 &ndash;&gt;-->
+    <!--        <queueSize>512</queueSize>-->
+    <!--        &lt;!&ndash; 队列满时是否丢弃日志。丢弃比例，0表示不丢弃任何日志。队列满时会阻塞线程 &ndash;&gt;-->
+    <!--        <discardingThreshold>20</discardingThreshold>-->
+    <!--        &lt;!&ndash; 是否包含调用者数据（如类名、方法名、行号等）。建议关闭提高性能 &ndash;&gt;-->
+    <!--        <includeCallerData>false</includeCallerData>-->
+    <!--        &lt;!&ndash; 引用实际的日志输出目标appender名。注意引用的对象要在之前定义 &ndash;&gt;-->
+    <!--        <appender-ref ref="file_debug"/>-->
+    <!--    </appender>-->
 
     <!-- 指定某个包的日志级别 -->
     <logger name="com.wjy.wutool" level="debug"/>
