@@ -42,5 +42,7 @@
     - [基于时间间隔的内存kv缓存过滤器。可用于流量削峰](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/MemoryKvCacheDurationFilter.java)
     - [使用各种姿势获取资源的路径](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/ResourcePathUtil.java)
     - [简单资源操作锁](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/SimpleResourceLock.java)
+    - [唯一短id生成](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/ShortIdUtil.
+      java)
 - 其他配置
     - [logback日志输出配置范例。文件大小限制、滚动覆盖策略、定时清理、异步输出等](https://github.com/handsomestWei/wutool/tree/main/src/main/resources/logback.xml)
