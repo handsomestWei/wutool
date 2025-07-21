@@ -1,4 +1,4 @@
-package com.omara.acs.vendor;
+package com.wjy.wutool.web.vendor;
 
 /**
  * 通用厂商类型枚举，集中配置所有支持的厂商类型及其服务实现类。

@@ -1,4 +1,4 @@
-package com.omara.acs.vendor;
+package com.wjy.wutool.web.vendor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
