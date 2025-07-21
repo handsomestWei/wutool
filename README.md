@@ -32,8 +32,10 @@
     - [i18n国际化工具类。规避某些场景下因缓存取不到期望值问题](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/I18nUtil.java)
     - [接口请求url unicode解码处理器](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/UrlPathUnicodeDecodeResolver.java)
     - mybatis
-        - [基于策略自动填充时间类型字段值](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/TimeMetaObjectHandler)
-        - [pg数据库jsonb字段类型处理器](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/PgJsonbTypeHandler)
+        - [基于策略自动填充时间类型字段值](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/TimeMetaObjectHandler.java)
+        - [pg数据库jsonb字段类型处理器](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/PgJsonbTypeHandler.java)
+    - [守护进程实现。自定义退出码和崩溃监听，基于单jar双进程运行模式](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/ProcessGuardUtil.java)
+    - [通用厂商服务注册器。支持集中配置、反射自动注册和多厂商服务查找，规避spi机制的缺点](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/vendor)
 - 工具类
     - [二维码图片生成、编码、解码](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/QrCodeUtil.java)
     - [图片处理：多图合并和加字、图片画框](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/PicUtil.java)
@@ -42,7 +44,6 @@
     - [基于时间间隔的内存kv缓存过滤器。可用于流量削峰](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/MemoryKvCacheDurationFilter.java)
     - [使用各种姿势获取资源的路径](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/ResourcePathUtil.java)
     - [简单资源操作锁](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/SimpleResourceLock.java)
-    - [唯一短id生成](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/ShortIdUtil.
-      java)
+    - [唯一短id生成](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/util/ShortIdUtil.java)
 - 其他配置
     - [logback日志输出配置范例。文件大小限制、滚动覆盖策略、定时清理、异步输出等](https://github.com/handsomestWei/wutool/tree/main/src/main/resources/logback.xml)
