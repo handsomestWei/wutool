@@ -1,4 +1,4 @@
-package com.wjy.wutool.web;
+package com.wjy.wutool.web.i18n;
 
 import cn.hutool.extra.spring.SpringUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
  * @date 2025/3/18 23:55
  */
 @Slf4j
-public class I18nUtil {
+public class MessageUtil {
 
     // 配置文件名，注意格式和对应语言的资源文件的命名保持一致，例：语言_国家，zh_CN
     private static final String DEFAULT_LOCAL_PROPERTY_NAME = "spring.web.locale";
@@ -40,7 +40,7 @@ public class I18nUtil {
     }
 
     /**
-     * 获取国际化内容。从spring.mvc.locale配置获取默认国际化配置
+     * 获取国际化内容。从spring.mvc.locale配置获取默认国际化配置。适用于内部消息通知等固定语言的场景
      *
      * @param code 消息键
      * @param args 参数
