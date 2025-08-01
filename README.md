@@ -29,8 +29,10 @@
     - [http调用链id注入过滤器。适合单体架构](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/filter/HttpTraceIdFilter.java)
     - [http请求控制器日志打印切面。输出请求入出参数值和耗时到日志](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/WebLogAspect.java)
     - [参数校验配置。可作用在http请求入参校验等](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/ValidatorConfig.java)
-    - [i18n国际化工具类。规避某些场景下因缓存取不到期望值问题](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/I18nUtil.java)
-    - [接口请求url unicode解码处理器](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/UrlPathUnicodeDecodeResolver.java)
+	- [接口请求url unicode解码处理器](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/UrlPathUnicodeDecodeResolver.java)
+    - i18n国际化
+        - [国际化语言工具类。规避某些场景下因缓存取不到期望值问题](/src/main/java/com/wjy/wutool/web/i18n/MessageUtil.java)
+        - [国际化语言切换拦截器。从请求头获取语言设置并传递给业务侧使用](/src/main/java/com/wjy/wutool/web/i18n/LanguageInterceptor.java)
     - mybatis
         - [基于策略自动填充时间类型字段值](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/TimeMetaObjectHandler.java)
         - [pg数据库jsonb字段类型处理器](https://github.com/handsomestWei/wutool/tree/main/src/main/java/com/wjy/wutool/web/mybatis/PgJsonbTypeHandler.java)
